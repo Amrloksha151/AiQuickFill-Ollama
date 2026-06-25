@@ -3,7 +3,7 @@
 let timer = null;
 let textBoxContent = '';
 let pageContent = '';
-const API_URL = 'https://api.openai.com/v1/chat/completions';
+const API_URL = 'https://localhost:11434/v1/chat/completions';
 
 
 async function updateTextbox(request, sender) {
@@ -66,7 +66,7 @@ ${textBoxContent}
     settings.modelTemp = parseFloat(settings.modelTemp)
 
     // Call the OpenAI API
-    const response = fetch('https://api.openai.com/v1/chat/completions', {
+    const response = fetch('https://localhost:11434/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ ${textBoxContent}
     },
     body: JSON.stringify({
       'temperature': settings.modelTemp,
-      'model': 'gpt-4-1106-preview',
+      'model': 'qwen2.5:1.5b',
       'messages': messages
     })
   });
